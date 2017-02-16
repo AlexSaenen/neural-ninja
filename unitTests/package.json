@@ -1,0 +1,19 @@
+{
+  "name": "skynet-units",
+  "version": "1.0.0",
+  "description": "Skynet API and Engine unitary tests",
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.14.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "optimist": "^0.6.1",
+    "request": "^2.74.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha *.test.js --docker --timeout 150000"
+  },
+  "license": "ISC"
+}

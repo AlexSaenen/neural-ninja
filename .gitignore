@@ -1,0 +1,16 @@
+# MAC OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+node_modules
+node_modules.backup
+modelBackups
+npm-debug.log
+__pycache__
+build
+dist

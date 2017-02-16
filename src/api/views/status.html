@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Skynet Status</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" />
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="assets/style/status.css">
+        <link rel="stylesheet" type="text/css" href="assets/style/global.css">
+    </head>
+
+    <body>
+        <div class="layoutHead">
+            <h1>Skynet's Networks Status</h1>
+        </div>
+
+        <div class="layoutBody">
+        {% for watcher in watchers %}
+            {% block watcher %}
+            <div class="watcherWrapper">
+                <div class="watcherNameWrapper">
+                    <p>{{ escape(watcher._name) }}</p>
+                </div>
+                <div class="watcherInfoWrapper">
+                    <p>Loaded: {{ escape(str(watcher.isLoaded)) }}</p>
+                    <p>Running: {{ escape(str(watcher.isRunning)) }}</p>
+                </div>
+                <div class="watcherInfoWrapper">
+                {% if watcher.file is not None %}
+                    <table class="watcherConfigWrapper">
+                    {% set config = watcher.getConfig() %}
+                    {% for key in config %}
+                        <tr>
+                            <td>{{ escape(key) }}</td>
+                            <td>{{ escape(str(config[key])) }}</td>
+                        </tr>
+                    {% end %}
+                    {% if watcher.isRunning %}
+                        <tr>
+                            <td>Accuracy</td>
+                            <td>{{ str(round(watcher.getNetworkInstance()._lastKnownAccuracy * 100, 2)) }}%</td>
+                        </tr>
+                    {% end %}
+                    </table>
+                {% else %}
+                    <p>No config available: network not loaded</p>
+                    {% if watcher.loadError is not None %}
+                        <p>{{ str(watcher.loadError) }}</p>
+                    {% end %}
+                {% end %}
+                </div>
+            </div>
+            {% end %}
+        {% end %}
+        </div>
+    </body>
+</html>

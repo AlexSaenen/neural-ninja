@@ -1,0 +1,25 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'bariol';
+    src: url('/assets/fonts/bariol.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bariol';
+    src: url('/assets/fonts/bariol_italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'aller';
+    src: url('/assets/fonts/aller.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
